@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jack K. — Builder & Founder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Cabinet+Grotesk:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f4efe9;--white:#fff;--text:#1a1207;--text-mid:#6b5e4e;--text-soft:#a8998a;
+  --orange:#f97316;--og:rgba(249,115,22,.14);
+  --glass:rgba(255,255,255,.58);--gb:rgba(255,255,255,.85);
+  --sh:0 8px 32px rgba(0,0,0,.07),0 2px 8px rgba(0,0,0,.04);
+  --shl:0 20px 60px rgba(0,0,0,.11),0 4px 20px rgba(0,0,0,.06);
+  --serif:'Instrument Serif',Georgia,serif;--sans:'Cabinet Grotesk',system-ui,sans-serif;
+  --r:22px;--rsm:14px
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden;cursor:none}
+
+#cur{position:fixed;z-index:9999;width:10px;height:10px;background:var(--orange);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:width .15s,height .15s;mix-blend-mode:multiply}
+#cur-ring{position:fixed;z-index:9998;width:40px;height:40px;border:1.5px solid rgba(249,115,22,.45);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%)}
+#cur.big{width:18px;height:18px}
+#cur-ring.big{width:66px;height:66px}
+
+.blobs{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.b{position:absolute;border-radius:50%;filter:blur(90px);opacity:.32;animation:bf linear infinite}
+.b1{width:520px;height:520px;background:#fed7aa;top:-80px;left:-100px;animation-duration:22s}
+.b2{width:380px;height:380px;background:#dbeafe;top:25%;right:-60px;animation-duration:26s;animation-delay:-9s}
+.b3{width:320px;height:320px;background:#ede9fe;bottom:15%;left:15%;animation-duration:19s;animation-delay:-6s}
+.b4{width:260px;height:260px;background:#fce7f3;bottom:-40px;right:25%;animation-duration:24s;animation-delay:-13s}
+@keyframes bf{0%{transform:translate(0,0)scale(1)}25%{transform:translate(35px,-28px)scale(1.06)}50%{transform:translate(-22px,38px)scale(.94)}75%{transform:translate(-38px,-18px)scale(1.03)}100%{transform:translate(0,0)scale(1)}}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 44px;display:flex;justify-content:space-between;align-items:center}
+.np{background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--gb);border-radius:100px;padding:10px 20px;box-shadow:var(--sh);display:flex;align-items:center;gap:8px}
+.np a{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--text);text-decoration:none}
+.nl{background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--gb);border-radius:100px;padding:10px 24px;display:flex;gap:28px;box-shadow:var(--sh)}
+.nl a{font-size:.82rem;font-weight:700;color:var(--text-mid);text-decoration:none;transition:color .2s}
+.nl a:hover{color:var(--orange)}
+.ns{background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--gb);border-radius:100px;padding:10px 18px;display:flex;align-items:center;gap:7px;font-size:.74rem;font-weight:700;color:var(--text-mid);box-shadow:var(--sh)}
+.ld{width:7px;height:7px;background:#22c55e;border-radius:50%;animation:lp 2s infinite}
+@keyframes lp{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.4)}50%{box-shadow:0 0 0 5px rgba(34,197,94,0)}}
+
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 44px 80px;position:relative;z-index:1}
+.hf{position:absolute;border-radius:50%;pointer-events:none;animation:orbit linear infinite}
+.hf1{width:80px;height:80px;background:rgba(249,115,22,.13);top:18%;left:7%;animation-duration:13s}
+.hf2{width:52px;height:52px;background:rgba(96,165,250,.18);top:32%;right:9%;animation-duration:9s;animation-delay:-3s}
+.hf3{width:64px;height:64px;background:rgba(167,139,250,.16);bottom:22%;left:11%;animation-duration:15s;animation-delay:-7s}
+.hf4{width:42px;height:42px;background:rgba(244,114,182,.18);bottom:28%;right:7%;animation-duration:11s;animation-delay:-4s}
+@keyframes orbit{0%{transform:translate(0,0)rotate(0deg)}33%{transform:translate(14px,-18px)rotate(120deg)}66%{transform:translate(-14px,10px)rotate(240deg)}100%{transform:translate(0,0)rotate(360deg)}}
+
+.hbadge{display:inline-flex;align-items:center;gap:8px;background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--gb);border-radius:100px;padding:8px 18px;font-size:.78rem;font-weight:700;color:var(--orange);margin-bottom:32px;box-shadow:var(--sh);animation:popIn .6s cubic-bezier(.34,1.56,.64,1) .1s both}
+.hbdot{width:6px;height:6px;background:var(--orange);border-radius:50%}
+.hname{font-family:var(--serif);font-size:clamp(4rem,10.5vw,9.5rem);line-height:.93;color:var(--text);letter-spacing:-.03em;margin-bottom:26px;animation:popIn .7s cubic-bezier(.34,1.56,.64,1) .2s both}
+.hname em{font-style:italic;background:linear-gradient(135deg,var(--orange) 0%,#f59e0b 55%,#ef4444 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.htag{font-size:clamp(1rem,1.8vw,1.4rem);font-weight:500;color:var(--text-mid);max-width:540px;line-height:1.6;margin-bottom:48px;animation:popIn .7s cubic-bezier(.34,1.56,.64,1) .3s both}
+.htag strong{color:var(--text);font-weight:800}
+.hchips{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:48px;animation:popIn .7s cubic-bezier(.34,1.56,.64,1) .42s both}
+.chip{background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--gb);border-radius:100px;padding:10px 20px;font-size:.82rem;font-weight:700;color:var(--text);box-shadow:var(--sh);transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s}
+.chip:hover{transform:translateY(-4px);box-shadow:var(--shl)}
+.chip.o{background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.25);color:#c2410c}
+.chip.b{background:rgba(96,165,250,.1);border-color:rgba(96,165,250,.25);color:#1d4ed8}
+.chip.p{background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.25);color:#6d28d9}
+.chip.g{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.25);color:#065f46}
+.hcta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;animation:popIn .7s cubic-bezier(.34,1.56,.64,1) .52s both}
+.btn-p{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-family:var(--sans);font-size:.88rem;font-weight:800;padding:14px 28px;border-radius:100px;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(249,115,22,.35);cursor:none}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(249,115,22,.45)}
+.btn-g{display:inline-flex;align-items:center;gap:8px;background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--gb);color:var(--text);font-family:var(--sans);font-size:.88rem;font-weight:700;padding:14px 28px;border-radius:100px;text-decoration:none;box-shadow:var(--sh);transition:transform .2s,box-shadow .2s;cursor:none}
+.btn-g:hover{transform:translateY(-3px);box-shadow:var(--shl)}
+@keyframes popIn{from{opacity:0;transform:scale(.88)translateY(18px)}to{opacity:1;transform:scale(1)translateY(0)}}
+
+.mq-wrap{position:relative;z-index:1;overflow:hidden;padding:18px 0;border-top:1px solid rgba(255,255,255,.65);border-bottom:1px solid rgba(255,255,255,.65);background:rgba(255,255,255,.28);backdrop-filter:blur(10px)}
+.mq-track{display:flex;white-space:nowrap;animation:mqs 20s linear infinite}
+.mq-track:hover{animation-play-state:paused}
+.mq-item{display:inline-flex;align-items:center;gap:16px;padding:0 22px;font-size:.8rem;font-weight:800;color:var(--text-mid);letter-spacing:.05em;text-transform:uppercase}
+.mdot{width:5px;height:5px;background:var(--orange);border-radius:50%;flex-shrink:0}
+@keyframes mqs{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.sec{position:relative;z-index:1;padding:96px 44px}
+.stag{display:inline-flex;align-items:center;gap:7px;background:var(--og);border:1px solid rgba(249,115,22,.2);border-radius:100px;padding:6px 14px;font-size:.7rem;font-weight:800;color:var(--orange);letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px}
+.stitle{font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,3.8rem);color:var(--text);line-height:1.05;letter-spacing:-.025em;margin-bottom:14px}
+.stitle em{font-style:italic;color:var(--orange)}
+.ssub{font-size:1rem;color:var(--text-mid);max-width:460px;line-height:1.65;margin-bottom:56px}
+
+.gc{background:var(--glass);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid var(--gb);border-radius:var(--r);box-shadow:var(--sh)}
+
+.pg{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.pcard{display:flex;flex-direction:column;gap:18px;padding:32px;text-decoration:none;color:inherit;position:relative;overflow:hidden;cursor:none;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s}
+.pcard::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.38) 0%,transparent 55%);pointer-events:none;border-radius:var(--r)}
+.pcard:hover{transform:translateY(-7px)rotate(-.4deg);box-shadow:var(--shl)}
+.pcard.wide{grid-column:span 2}
+.pt{display:flex;justify-content:space-between;align-items:flex-start}
+.picon{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;flex-shrink:0}
+.picon.o{background:rgba(249,115,22,.14)}
+.picon.p{background:rgba(167,139,250,.14)}
+.picon.g{background:rgba(52,211,153,.14)}
+.picon.b{background:rgba(96,165,250,.14)}
+.parr{width:34px;height:34px;background:var(--glass);border:1px solid var(--gb);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:var(--text-mid);transition:background .2s,color .2s,transform .25s cubic-bezier(.34,1.56,.64,1),border-color .2s}
+.pcard:hover .parr{background:var(--orange);color:#fff;border-color:var(--orange);transform:rotate(45deg)}
+.pname{font-family:var(--serif);font-size:1.7rem;color:var(--text);letter-spacing:-.02em}
+.pdesc{font-size:.88rem;color:var(--text-mid);line-height:1.62;flex:1}
+.pbot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.ptags{display:flex;gap:7px;flex-wrap:wrap}
+.ptag{font-size:.68rem;font-weight:700;padding:4px 11px;border-radius:100px;background:rgba(0,0,0,.06);color:var(--text-mid)}
+.pst{display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:700;padding:5px 11px;border-radius:100px}
+.pst::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor}
+.st-live{background:rgba(34,197,94,.11);color:#15803d}
+.st-build{background:rgba(249,115,22,.11);color:#c2410c}
+.st-paused{background:rgba(0,0,0,.06);color:var(--text-soft)}
+
+.skgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.skcard{padding:26px 22px;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;cursor:default}
+.skcard:hover{transform:translateY(-5px)rotate(.4deg);box-shadow:var(--shl)}
+.skicon{font-size:1.5rem;margin-bottom:12px;display:block}
+.sktitle{font-family:var(--serif);font-size:1.15rem;color:var(--text);margin-bottom:12px}
+.skitems{display:flex;flex-direction:column;gap:6px}
+.ski{display:flex;align-items:center;gap:8px;font-size:.76rem;font-weight:600;color:var(--text-mid)}
+.ski::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--orange);flex-shrink:0}
+
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.amain{padding:40px;position:relative;overflow:hidden}
+.amain::before{content:'';position:absolute;top:-50px;right:-50px;width:220px;height:220px;background:radial-gradient(circle,rgba(249,115,22,.1),transparent 70%);pointer-events:none}
+.abody{font-size:.98rem;line-height:1.75;color:var(--text-mid);margin-bottom:18px}
+.abody strong{color:var(--text);font-weight:700}
+.aquote{margin-top:28px;padding:18px 22px;background:rgba(249,115,22,.08);border-left:3px solid var(--orange);border-radius:0 var(--rsm) var(--rsm) 0}
+.aquote p{font-family:var(--serif);font-size:1.15rem;font-style:italic;color:var(--text)}
+.aright{display:flex;flex-direction:column;gap:14px}
+.asgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.astat{padding:22px 18px;text-align:center;transition:transform .3s cubic-bezier(.34,1.56,.64,1);cursor:default}
+.astat:hover{transform:scale(1.05)}
+.asnum{font-family:var(--serif);font-size:1.9rem;color:var(--text);letter-spacing:-.03em}
+.asnum span{color:var(--orange)}
+.aslbl{font-size:.67rem;font-weight:700;color:var(--text-soft);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
+.abw{padding:22px}
+.abtitle{font-size:.7rem;font-weight:800;color:var(--text-soft);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px}
+.ablist{display:flex;flex-wrap:wrap;gap:7px}
+.abadge{background:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.9);border-radius:100px;padding:6px 13px;font-size:.74rem;font-weight:700;color:var(--text-mid);transition:transform .2s cubic-bezier(.34,1.56,.64,1);cursor:default}
+.abadge:hover{transform:scale(1.07)translateY(-2px)}
+
+#contact{padding-bottom:112px}
+.cglass{max-width:660px;margin:0 auto;padding:60px 52px;text-align:center;position:relative;overflow:hidden}
+.cglass::before{content:'';position:absolute;top:-70px;left:50%;transform:translateX(-50%);width:340px;height:340px;background:radial-gradient(circle,rgba(249,115,22,.09),transparent 70%);pointer-events:none}
+.ctitle{font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,3.8rem);color:var(--text);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+.ctitle em{font-style:italic;color:var(--orange)}
+.csub{font-size:1rem;color:var(--text-mid);line-height:1.65;margin-bottom:40px}
+.cbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+footer{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.22);backdrop-filter:blur(10px);padding:26px 44px;display:flex;justify-content:space-between;align-items:center}
+footer p{font-size:.76rem;font-weight:600;color:var(--text-soft)}
+.fmotto{font-family:var(--serif);font-style:italic;font-size:.95rem;color:var(--text-mid)}
+
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rvp{opacity:0;transform:scale(.9);transition:opacity .6s cubic-bezier(.34,1.56,.64,1),transform .6s cubic-bezier(.34,1.56,.64,1)}
+.rv.in,.rvp.in{opacity:1;transform:none}
+
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--orange);border-radius:3px}
+
+@media(max-width:860px){
+  nav{padding:14px 18px}
+  .nl{display:none}
+  .sec{padding:72px 20px}
+  .pg{grid-template-columns:1fr}
+  .pcard.wide{grid-column:span 1}
+  .skgrid{grid-template-columns:repeat(2,1fr)}
+  .agrid{grid-template-columns:1fr}
+  footer{padding:22px 20px;flex-direction:column;gap:10px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<div class="blobs">
+  <div class="b b1"></div><div class="b b2"></div>
+  <div class="b b3"></div><div class="b b4"></div>
+</div>
+
+<nav>
+  <div class="np"><a href="#hero">Jack K.</a></div>
+  <div class="nl">
+    <a href="#projects">Work</a>
+    <a href="#skills">Stack</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="ns"><div class="ld"></div>Building Icarus</div>
+</nav>
+
+<section id="hero">
+  <div class="hf hf1"></div><div class="hf hf2"></div>
+  <div class="hf hf3"></div><div class="hf hf4"></div>
+  <div class="hbadge"><div class="hbdot"></div>12 yrs old · Toronto · YC S26</div>
+  <h1 class="hname">Jack<br><em>Koundakjian</em></h1>
+  <p class="htag">Building <strong>AI execution platforms</strong> that actually ship.<br>Co-founder of Icarus. Thinking in systems since day one.</p>
+  <div class="hchips">
+    <div class="chip o">🚀 Icarus — AI Platform</div>
+    <div class="chip b">⚡ Electron + React</div>
+    <div class="chip p">🤖 Multi-Agent AI</div>
+    <div class="chip g">🎯 YC S26 Target</div>
+  </div>
+  <div class="hcta">
+    <a href="#projects" class="btn-p">See My Work ↓</a>
+    <a href="#contact" class="btn-g">Get In Touch</a>
+  </div>
+</section>
+
+<div class="mq-wrap">
+  <div class="mq-track">
+    <div class="mq-item"><span>AI Execution</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>Product Thinking</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>Electron</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>React</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>Supabase</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>Systems Thinking</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>YC S26</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>Think Different</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>Stay Weird</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>Multi-Agent AI</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>Claude API</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>3D Printing</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>AI Execution</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>Product Thinking</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>Electron</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>React</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>Supabase</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>Systems Thinking</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>YC S26</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>Think Different</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>Stay Weird</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>Multi-Agent AI</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>Claude API</span><div class="mdot"></div></div>
+    <div class="mq-item"><span>3D Printing</span><div class="mdot"></div></div>
+  </div>
+</div>
+
+<section id="projects" class="sec">
+  <div class="stag">✦ Selected Work</div>
+  <h2 class="stitle rv">Things I've <em>Built</em></h2>
+  <p class="ssub rv">Projects across AI infrastructure, consumer apps, and platforms. Always shipping.</p>
+  <div class="pg">
+    <a href="#" class="gc pcard wide rvp">
+      <div class="pt"><div class="picon o">🦅</div><div class="parr">↗</div></div>
+      <div class="pname">Icarus</div>
+      <div class="pdesc">An AI execution platform where you type a goal and autonomous agents — Planner, Builder, Executor, Critic — plan and complete real tasks across your tools. Built on Electron for macOS. Targeting YC S26.</div>
+      <div class="pbot">
+        <div class="ptags"><span class="ptag">Electron</span><span class="ptag">Multi-Agent</span><span class="ptag">Claude API</span><span class="ptag">Supabase</span><span class="ptag">macOS</span></div>
+        <div class="pst st-build">Building</div>
+      </div>
+    </a>
+    <a href="#" class="gc pcard rvp">
+      <div class="pt"><div class="picon p">⚡</div><div class="parr">↗</div></div>
+      <div class="pname">Katalix</div>
+      <div class="pdesc">AI orchestration platform with a Model Council — GPT-4o, Claude, and Gemini working in tandem. Glassmorphism UI, deliberate execution modes, credit system.</div>
+      <div class="pbot">
+        <div class="ptags"><span class="ptag">AI Orchestration</span><span class="ptag">Lovable</span><span class="ptag">Supabase</span></div>
+        <div class="pst st-paused">Paused</div>
+      </div>
+    </a>
+    <a href="#" class="gc pcard rvp">
+      <div class="pt"><div class="picon g">🛍️</div><div class="parr">↗</div></div>
+      <div class="pname">ShopLin</div>
+      <div class="pdesc">Affiliate shopping site with Amazon tag integration. Warm Startup Modern design — beige, orange accents, rounded UI. Fully static, fast, and live.</div>
+      <div class="pbot">
+        <div class="ptags"><span class="ptag">HTML/CSS/JS</span><span class="ptag">Amazon</span><span class="ptag">Affiliate</span></div>
+        <div class="pst st-live">Live</div>
+      </div>
+    </a>
+    <a href="#" class="gc pcard rvp">
+      <div class="pt"><div class="picon b">👁️</div><div class="parr">↗</div></div>
+      <div class="pname">EyeRest</div>
+      <div class="pdesc">macOS menu bar app in SwiftUI. Enforces the 20-20-20 rule to reduce eye strain. Built for the App Store.</div>
+      <div class="pbot">
+        <div class="ptags"><span class="ptag">SwiftUI</span><span class="ptag">macOS</span><span class="ptag">App Store</span></div>
+        <div class="pst st-build">In Dev</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section id="skills" class="sec">
+  <div class="stag">✦ Stack</div>
+  <h2 class="stitle rv">How I <em>Build</em></h2>
+  <p class="ssub rv">Tools and technologies I reach for when shipping products.</p>
+  <div class="skgrid">
+    <div class="gc skcard rvp"><span class="skicon">🖥️</span><div class="sktitle">Frontend</div><div class="skitems"><div class="ski">React / Next.js</div><div class="ski">HTML · CSS · JS</div><div class="ski">Tailwind CSS</div><div class="ski">Three.js</div><div class="ski">Electron</div></div></div>
+    <div class="gc skcard rvp"><span class="skicon">⚙️</span><div class="sktitle">Backend</div><div class="skitems"><div class="ski">Supabase</div><div class="ski">Node.js</div><div class="ski">Vercel</div><div class="ski">Google Apps Script</div><div class="ski">REST APIs</div></div></div>
+    <div class="gc skcard rvp"><span class="skicon">🤖</span><div class="sktitle">AI & Agents</div><div class="skitems"><div class="ski">Claude API</div><div class="ski">GPT-4o</div><div class="ski">Replicate</div><div class="ski">Multi-Agent Systems</div><div class="ski">Prompt Engineering</div></div></div>
+    <div class="gc skcard rvp"><span class="skicon">🎨</span><div class="sktitle">Design & Tools</div><div class="skitems"><div class="ski">Figma</div><div class="ski">Glassmorphism</div><div class="ski">Bambu Studio (3D)</div><div class="ski">Lovable / Bolt / v0</div><div class="ski">Claude Code</div></div></div>
+  </div>
+</section>
+
+<section id="about" class="sec">
+  <div class="stag">✦ About</div>
+  <h2 class="stitle rv">Who I <em>Am</em></h2>
+  <div class="agrid">
+    <div class="gc amain rvp">
+      <p class="abody">I'm <strong>Jack Koundakjian</strong> — a 12-year-old co-founder based in Toronto. I build AI infrastructure and products that actually ship.</p>
+      <p class="abody">My current focus is <strong>Icarus</strong> — an AI execution platform where autonomous agents plan and complete real tasks. Targeting <strong>YC S26</strong> with my co-founder Iliya.</p>
+      <p class="abody">I think in systems. I design with intent. I optimize for leverage over labor and scale over noise. My goal is <strong>Fortune 500 CEO</strong>.</p>
+      <div class="aquote"><p>"Think different." — the motto I build by.</p></div>
+    </div>
+    <div class="aright">
+      <div class="asgrid">
+        <div class="gc astat rvp"><div class="asnum">4<span>+</span></div><div class="aslbl">Products Shipped</div></div>
+        <div class="gc astat rvp"><div class="asnum">12</div><div class="aslbl">Years Old</div></div>
+        <div class="gc astat rvp"><div class="asnum">S26</div><div class="aslbl">YC Target</div></div>
+        <div class="gc astat rvp"><div class="asnum">∞</div><div class="aslbl">Ambition</div></div>
+      </div>
+      <div class="gc abw rvp">
+        <div class="abtitle">Also into →</div>
+        <div class="ablist">
+          <span class="abadge">🕷 Spider-Man</span><span class="abadge">🚗 BMWs</span>
+          <span class="abadge">⛏ Minecraft</span><span class="abadge">🎮 Fortnite</span>
+          <span class="abadge">🎵 Benson Boone</span><span class="abadge">🎤 Ed Sheeran</span>
+          <span class="abadge">🖨 3D Printing</span><span class="abadge">🛍 Yorkdale</span>
+          <span class="abadge">🎙 Waveform</span><span class="abadge">✨ Stay Weird</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="sec">
+  <div class="gc cglass rvp">
+    <div class="stag" style="margin:0 auto 22px;display:inline-flex;">✦ Get In Touch</div>
+    <div class="ctitle">Let's build<br><em>something.</em></div>
+    <p class="csub">Whether it's a collab, feedback on Icarus, or just a conversation — I'm always down to connect with builders.</p>
+    <div class="cbtns">
+      <a href="mailto:jack@icarus.ai" class="btn-p">✉ Email Me</a>
+      <a href="https://linkedin.com/in/jack" target="_blank" class="btn-g">LinkedIn ↗</a>
+      <a href="https://github.com/jack" target="_blank" class="btn-g">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Jack Koundakjian · Toronto, Canada</p>
+  <div class="fmotto">stay weird.</div>
+  <p>Built by hand · No templates</p>
+</footer>
+
+<script>
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+document.querySelectorAll('a,button,.chip,.abadge,.astat,.skcard').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.classList.add('big');ring.classList.add('big');});
+  el.addEventListener('mouseleave',()=>{cur.classList.remove('big');ring.classList.remove('big');});
+});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('in'),i*70);});
+},{threshold:.08});
+document.querySelectorAll('.rv,.rvp').forEach(el=>obs.observe(el));
+document.querySelectorAll('.pcard').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`translateY(-7px) rotateX(${-y*7}deg) rotateY(${x*7}deg)`;
+  });
+  card.addEventListener('mouseleave',()=>{card.style.transform='';});
+});
+</script>
+</body>
+</html>
