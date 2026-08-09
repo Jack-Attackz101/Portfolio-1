@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jack Koll-Gunderson</title>
+<meta name="description" content="I build and ship Mac apps and web apps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=Azeret+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4EFE6; --ink:#1C1C1E; --muted:#6E6A63; --line:#DDD6C9;
+    --green:#3D6B2E; --blue:#5B9AB8; --terra:#C84B2F;
+    --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,sans-serif;
+    --mono:'Azeret Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);
+       font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:820px;margin:0 auto;padding:0 28px}
+  a{color:inherit}
+
+  /* header */
+  header{padding:96px 0 0}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:2px;
+           text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+  h1{font-family:var(--serif);font-size:clamp(40px,7vw,68px);line-height:1.02;
+     font-weight:600;letter-spacing:-1.5px;margin-bottom:24px}
+  .lede{font-size:19px;line-height:1.6;max-width:560px;color:var(--ink)}
+  .lede b{font-weight:600}
+  .meta{margin-top:30px;display:flex;gap:26px;flex-wrap:wrap;
+        font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .meta a{border-bottom:1px solid var(--line);text-decoration:none;padding-bottom:2px}
+  .meta a:hover{border-color:var(--ink);color:var(--ink)}
+
+  hr{border:0;border-top:1px solid var(--line);margin:76px 0 0}
+
+  /* sections */
+  section{padding:52px 0 0}
+  h2{font-family:var(--mono);font-size:11px;letter-spacing:2px;
+     text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:34px}
+
+  /* projects */
+  .proj{padding:34px 0;border-bottom:1px solid var(--line);
+        display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+  .proj:last-child{border-bottom:0}
+  .proj h3{font-family:var(--serif);font-size:27px;font-weight:600;
+           letter-spacing:-0.4px;line-height:1.15;margin-bottom:9px}
+  .proj .what{font-size:15px;color:var(--muted);margin-bottom:14px;max-width:520px}
+  .proj .detail{font-size:14.5px;line-height:1.65;max-width:540px;margin-bottom:14px}
+  .tags{display:flex;gap:7px;flex-wrap:wrap}
+  .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:0.4px;
+       color:var(--muted);border:1px solid var(--line);padding:2px 8px;border-radius:2px}
+  .side{text-align:right;font-family:var(--mono);font-size:11.5px;
+        color:var(--muted);white-space:nowrap;padding-top:6px}
+  .side a{display:block;text-decoration:none;border-bottom:1px solid var(--line);
+          padding-bottom:2px;margin-bottom:8px}
+  .side a:hover{border-color:var(--ink);color:var(--ink)}
+  .dot{display:inline-block;width:6px;height:6px;border-radius:50%;
+       margin-right:6px;vertical-align:middle}
+  .live .dot{background:var(--green)} .soon .dot{background:var(--terra)}
+
+  /* writing / notes */
+  .note{padding:16px 0;border-bottom:1px solid var(--line);display:flex;
+        justify-content:space-between;gap:20px;align-items:baseline}
+  .note:last-child{border-bottom:0}
+  .note p{font-size:15px;max-width:600px}
+  .note span{font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap}
+
+  footer{padding:60px 0 90px;margin-top:56px;border-top:1px solid var(--line);
+         font-family:var(--mono);font-size:11.5px;color:var(--muted);
+         display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer a{text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
+  footer a:hover{border-color:var(--ink);color:var(--ink)}
+
+  @media(max-width:600px){
+    header{padding-top:60px}
+    .proj{grid-template-columns:1fr}
+    .side{text-align:left;padding-top:4px}
+    .side a{display:inline-block;margin-right:16px}
+    .note{flex-direction:column;gap:4px}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Toronto, Canada</div>
+    <h1>Jack Koll-Gunderson</h1>
+    <p class="lede">I build and ship <b>Mac apps and web apps</b>, mostly on my own. Native Swift when it has to feel like part of the machine, plain JavaScript when it has to ship this week.</p>
+    <div class="meta">
+      <a href="https://github.com/Jack-Attackz101">GitHub</a>
+      <a href="mailto:jackkollgunderson@gmail.com">Email</a>
+      <a href="https://useiris.vercel.app">Iris</a>
+    </div>
+  </header>
+
+  <hr>
+
+  <section>
+    <h2>Things I have built</h2>
+
+    <div class="proj">
+      <div>
+        <h3>Iris</h3>
+        <p class="what">A macOS menu bar app that makes you rest your eyes, and blocks the things that pull you away while you work.</p>
+        <p class="detail">Every eye-break app on the Mac reminds you to look away. Every focus app blocks distractions. Nothing does both, so you end up paying for two. Iris does both in one native app: 20-20-20 breaks, on-device posture detection using the Vision framework, and an app and website blocker that runs while you work. It holds a break back if you are mid-sentence, which is the thing people actually uninstall these apps over.</p>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">AppKit</span><span class="tag">Vision</span><span class="tag">Sparkle</span></div>
+      </div>
+      <div class="side soon">
+        <a href="https://useiris.vercel.app">useiris.app</a>
+        <span class="dot"></span>Launching Aug 30
+      </div>
+    </div>
+
+    <div class="proj">
+      <div>
+        <h3>Ziggy's Critters</h3>
+        <p class="what">A quiz game for kids, with a console their parents can actually use.</p>
+        <p class="detail">Kids answer questions, collect critters and message each other. Parents get a separate console to see progress and read what has been sent. Built for real children using it daily, which means the boring parts matter most: locked-down row-level security, hashed PINs, and a client that fails gracefully rather than telling a nine year old their correct PIN is wrong.</p>
+        <div class="tags"><span class="tag">JavaScript</span><span class="tag">Supabase</span><span class="tag">Postgres</span><span class="tag">RLS</span><span class="tag">Edge Functions</span></div>
+      </div>
+      <div class="side live">
+        <a href="https://playziggy.vercel.app">playziggy.app</a>
+        <span class="dot"></span>Live
+      </div>
+    </div>
+
+    <div class="proj">
+      <div>
+        <h3>Fitcheck</h3>
+        <p class="what">A wardrobe app that picks what you wear based on the weather outside.</p>
+        <p class="detail">Photograph your clothes once, and it suggests outfits that match the forecast and do not clash. Everything is stored locally in the browser, no account. Dark editorial design, built to feel like a magazine rather than a database.</p>
+        <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">IndexedDB</span><span class="tag">Gemini Vision</span></div>
+      </div>
+      <div class="side live">
+        <a href="https://usefitcheck.vercel.app">usefitcheck.app</a>
+        <span class="dot"></span>Live
+      </div>
+    </div>
+
+    <div class="proj">
+      <div>
+        <h3>Switchboard</h3>
+        <p class="what">An iMessage-style chat client for talking to a team of AI agents.</p>
+        <p class="detail">One inbox for a group of agents that each run somewhere different, over a CLI, an HTTP API, or Slack. Five adapters behind one interface, so a conversation looks the same whether the thing answering is a local process or a bot in a Slack channel.</p>
+        <div class="tags"><span class="tag">Node</span><span class="tag">Vanilla JS</span><span class="tag">SSE</span><span class="tag">Slack API</span></div>
+      </div>
+      <div class="side live">
+        <a href="https://github.com/Jack-Attackz101/switchboard">Source</a>
+        <span class="dot"></span>Open source
+      </div>
+    </div>
+
+    <div class="proj">
+      <div>
+        <h3>Orbit</h3>
+        <p class="what">A dashboard for tracking my own projects, because I had too many.</p>
+        <p class="detail">Every project I run, in one place, with what state it is in and what the next thing is. Built after losing track of which of five side projects was actually closest to being finished.</p>
+        <div class="tags"><span class="tag">React</span><span class="tag">localStorage</span><span class="tag">Vercel</span></div>
+      </div>
+      <div class="side live">
+        <a href="https://sphereorbit.vercel.app">sphereorbit</a>
+        <span class="dot"></span>Live
+      </div>
+    </div>
+
+  </section>
+
+  <hr style="margin-top:44px">
+
+  <section>
+    <h2>How I work</h2>
+    <div class="note">
+      <p>I would rather ship one thing that works than five that almost do. Most of what I have learned came from killing projects that had no reason to exist.</p>
+      <span>on scope</span>
+    </div>
+    <div class="note">
+      <p>Native when it matters. An app that lives in your menu bar all day should not be a browser in a trench coat.</p>
+      <span>on tools</span>
+    </div>
+    <div class="note">
+      <p>If something is broken I would rather find it than be told it is fine. Most of the work on Ziggy was security nobody will ever see.</p>
+      <span>on quality</span>
+    </div>
+    <div class="note">
+      <p>Nothing I build phones home unless it has to. No accounts where a local file will do.</p>
+      <span>on privacy</span>
+    </div>
+  </section>
+
+  <footer>
+    <div>Built by hand. No template.</div>
+    <div><a href="https://github.com/Jack-Attackz101">github.com/Jack-Attackz101</a></div>
+  </footer>
+
+</div>
+</body>
+</html>
