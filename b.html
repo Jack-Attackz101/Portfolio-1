@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jack Koll-Gunderson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07070A;--panel:#0F1015;--line:#1D1F27;--ink:#E8E8EC;--dim:#7A7C88;--acc:#4B6BFB;--acc2:#5E9B47;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;
+     background-image:radial-gradient(circle at 15% 0%,rgba(75,107,251,.10),transparent 45%),radial-gradient(circle at 85% 20%,rgba(94,155,71,.06),transparent 40%);
+     background-attachment:fixed}
+.w{max-width:900px;margin:0 auto;padding:0 26px}
+a{color:inherit;text-decoration:none}
+mono,.mono{font-family:'JetBrains Mono',monospace}
+
+/* terminal header */
+header{padding:80px 0 0}
+.term{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;
+      box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}
+.bar i{width:11px;height:11px;border-radius:50%;display:block}
+.bar i:nth-child(1){background:#FF5F57}.bar i:nth-child(2){background:#FEBC2E}.bar i:nth-child(3){background:#28C840}
+.bar span{margin-left:8px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--dim)}
+.body{padding:26px 22px 30px;font-family:'JetBrains Mono',monospace;font-size:13.5px;line-height:1.85}
+.p{color:var(--acc2)}
+.c{color:var(--ink)}
+.o{color:var(--dim)}
+.body h1{font-family:'Inter',sans-serif;font-size:clamp(30px,5vw,44px);font-weight:700;
+         letter-spacing:-1.2px;margin:14px 0 10px;line-height:1.1}
+.body .desc{font-family:'Inter',sans-serif;font-size:16.5px;color:var(--dim);max-width:560px;margin-bottom:6px}
+.cursor{display:inline-block;width:8px;height:16px;background:var(--acc2);vertical-align:-3px;
+        animation:b 1.1s steps(2) infinite}
+@keyframes b{0%,50%{opacity:1}51%,100%{opacity:0}}
+
+/* stats strip */
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;background:var(--line);
+       border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:22px 0 0}
+.st{background:var(--panel);padding:16px 18px}
+.st b{display:block;font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:500;color:var(--ink)}
+.st span{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:1px}
+
+h2{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--dim);font-weight:600;
+   margin:70px 0 20px;font-family:'JetBrains Mono',monospace}
+
+/* project cards */
+.grid{display:grid;gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px;
+      transition:border-color .18s, transform .18s}
+.card:hover{border-color:#2B2E3A;transform:translateY(-2px)}
+.card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:10px}
+.card h3{font-size:21px;font-weight:600;letter-spacing:-0.3px}
+.badge{font-family:'JetBrains Mono',monospace;font-size:10.5px;padding:3px 9px;border-radius:20px;
+       border:1px solid var(--line);color:var(--dim);white-space:nowrap}
+.badge.live{color:var(--acc2);border-color:rgba(94,155,71,.35);background:rgba(94,155,71,.08)}
+.badge.soon{color:#D1603F;border-color:rgba(209,96,63,.35);background:rgba(209,96,63,.08)}
+.card p{font-size:14.5px;color:var(--dim);margin-bottom:14px;max-width:640px}
+.card p b{color:var(--ink);font-weight:500}
+.stack{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.stack span{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--dim);
+            border:1px solid var(--line);padding:2px 8px;border-radius:4px}
+.links a{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--acc);margin-right:16px}
+.links a:hover{text-decoration:underline}
+
+footer{margin-top:80px;padding:26px 0 70px;border-top:1px solid var(--line);
+       font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);
+       display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer a{color:var(--acc)}
+@media(max-width:620px){.card .top{flex-direction:column;gap:8px}.body{font-size:12px}}
+</style></head><body>
+<div class="w">
+
+<header>
+  <div class="term">
+    <div class="bar"><i></i><i></i><i></i><span>jack@mac ~ %</span></div>
+    <div class="body">
+      <div><span class="p">$</span> <span class="c">whoami</span></div>
+      <h1>Jack Koll-Gunderson</h1>
+      <p class="desc">I build and ship Mac apps and web apps, mostly on my own.</p>
+      <div style="margin-top:16px"><span class="p">$</span> <span class="c">cat approach.txt</span></div>
+      <div class="o">Native Swift when it has to feel like part of the machine.</div>
+      <div class="o">Plain JavaScript when it has to ship this week.</div>
+      <div style="margin-top:14px"><span class="p">$</span> <span class="cursor"></span></div>
+    </div>
+  </div>
+
+  <div class="strip">
+    <div class="st"><b>5</b><span>shipped</span></div>
+    <div class="st"><b>Swift</b><span>main stack</span></div>
+    <div class="st"><b>Toronto</b><span>based in</span></div>
+    <div class="st"><b>Aug 30</b><span>next launch</span></div>
+  </div>
+</header>
+
+<h2>// projects</h2>
+<div class="grid">
+
+  <div class="card">
+    <div class="top"><h3>Iris</h3><span class="badge soon">launching Aug 30</span></div>
+    <p>A macOS menu bar app that makes you rest your eyes, and blocks the things that pull you away while you work. <b>Every eye-break app reminds you to look away. Every focus app blocks distractions. Nothing does both</b>, so you end up paying for two. Iris does both natively, with on-device posture detection and breaks that wait for a gap instead of cutting you off mid-sentence.</p>
+    <div class="stack"><span>Swift</span><span>SwiftUI</span><span>AppKit</span><span>Vision</span><span>Sparkle</span></div>
+    <div class="links"><a href="https://useiris.vercel.app">site →</a></div>
+  </div>
+
+  <div class="card">
+    <div class="top"><h3>Ziggy's Critters</h3><span class="badge live">live</span></div>
+    <p>A quiz game for kids with a console their parents can actually use. Built for real children using it daily, which means <b>the boring parts matter most</b>: row-level security, hashed PINs, and a client that fails gracefully instead of telling a nine year old their correct PIN is wrong.</p>
+    <div class="stack"><span>JavaScript</span><span>Supabase</span><span>Postgres</span><span>RLS</span><span>Edge Functions</span></div>
+    <div class="links"><a href="https://playziggy.vercel.app">site →</a></div>
+  </div>
+
+  <div class="card">
+    <div class="top"><h3>Fitcheck</h3><span class="badge live">live</span></div>
+    <p>A wardrobe app that picks what you wear based on the weather. Photograph your clothes once, it suggests outfits that match the forecast and do not clash. <b>Everything stored locally, no account.</b></p>
+    <div class="stack"><span>React</span><span>TypeScript</span><span>IndexedDB</span><span>Gemini Vision</span></div>
+    <div class="links"><a href="https://usefitcheck.vercel.app">site →</a></div>
+  </div>
+
+  <div class="card">
+    <div class="top"><h3>Switchboard</h3><span class="badge live">open source</span></div>
+    <p>An iMessage-style client for talking to a team of AI agents. <b>Five adapters behind one interface</b>, so a conversation looks the same whether the thing answering is a local process, an HTTP API, or a bot in a Slack channel.</p>
+    <div class="stack"><span>Node</span><span>Vanilla JS</span><span>SSE</span><span>Slack API</span></div>
+    <div class="links"><a href="https://github.com/Jack-Attackz101/switchboard">source →</a></div>
+  </div>
+
+  <div class="card">
+    <div class="top"><h3>Orbit</h3><span class="badge live">live</span></div>
+    <p>A dashboard for tracking my own projects, built after <b>losing track of which of five side projects was closest to done.</b></p>
+    <div class="stack"><span>React</span><span>localStorage</span><span>Vercel</span></div>
+    <div class="links"><a href="https://sphereorbit.vercel.app">site →</a></div>
+  </div>
+
+</div>
+
+<h2>// how i work</h2>
+<div class="grid">
+  <div class="card"><p style="margin:0"><b>Ship one thing that works</b> over five that almost do. Most of what I learned came from killing projects that had no reason to exist.</p></div>
+  <div class="card"><p style="margin:0"><b>Native when it matters.</b> An app that lives in your menu bar all day should not be a browser in a trench coat.</p></div>
+  <div class="card"><p style="margin:0"><b>Find it before someone tells me.</b> Most of the work on Ziggy was security nobody will ever see.</p></div>
+</div>
+
+<footer>
+  <div>Built by hand. No template.</div>
+  <div><a href="https://github.com/Jack-Attackz101">github</a> &nbsp; <a href="mailto:jackkollgunderson@gmail.com">email</a></div>
+</footer>
+
+</div></body></html>
